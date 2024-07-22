@@ -10,7 +10,7 @@ async def root():
     return {"message": "Hello World"}
 
 @app.get("/clean")
-def clean(input_string: str):
+async def clean(input_string: str):
     # Remove tudo entre parênteses
     cleaned_string = re.sub(r'\(.*?\)', '', input_string)  
     # Remove pontuação
