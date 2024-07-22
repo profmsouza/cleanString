@@ -1,2 +1,2 @@
 fastapi[all]
-re[all]
+re 3.12.4
