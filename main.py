@@ -1,5 +1,5 @@
 from typing import Optional
-
+import re
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -9,6 +9,13 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/clean/{string}")
+def clean(input_string: str):
+    # Remove tudo entre parênteses
+    cleaned_string = re.sub(r'\(.*?\)', '', input_string)  
+    # Remove pontuação
+    cleaned_string = re.sub(r'[^\w\s]', '', cleaned_string)
+    # Remove múltiplos espaços em branco
+    cleaned_string = re.sub(r'\s+', ' ', cleaned_string).strip()
+    
+    return cleaned_string
