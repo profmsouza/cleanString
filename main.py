@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "The cleanString API is online!"}
 
 @app.get("/clean")
 async def clean(input_string: str):
