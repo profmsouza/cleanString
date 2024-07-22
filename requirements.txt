@@ -1,2 +1,1 @@
 fastapi[all]
-re==3.12.4
