@@ -18,4 +18,4 @@ def clean(input_string: str):
     # Remove múltiplos espaços em branco
     cleaned_string = re.sub(r'\s+', ' ', cleaned_string).strip()
     
-    return cleaned_string
+    return {"cleaned_string": cleaned_string}
